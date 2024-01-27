@@ -4,7 +4,7 @@ import { Base64Encoder } from "@/components/base64/base64-encoder"
 
 export function TabbedConverter() {
   return (
-    <Tabs defaultValue="encoder" className="w-[800px] flex flex-col justify-evenly gap-7">
+    <Tabs defaultValue="encoder" className="flex flex-col justify-evenly gap-7">
       <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="encoder">Base64 Encoder</TabsTrigger>
         <TabsTrigger value="decoder">Base64 Decoder</TabsTrigger>
