@@ -1,20 +1,28 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Base64Decoder } from "@/components/base64/base64-decoder"
-import { Base64Encoder } from "@/components/base64/base64-encoder"
+import { cn } from "@/lib/utils"
 
-export function TabbedConverter() {
+export interface TabbedConverterProps {
+  items: {
+    name: string
+    element: React.ReactElement
+  }[]
+}
+
+export function TabbedConverter({items}: TabbedConverterProps) {
   return (
-    <Tabs defaultValue="encoder" className="flex flex-col justify-evenly gap-7">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="encoder">Base64 Encoder</TabsTrigger>
-        <TabsTrigger value="decoder">Base64 Decoder</TabsTrigger>
+    <Tabs defaultValue={items[0].name} className="flex flex-col justify-evenly gap-7 m-7">
+      <TabsList className="w-min flex self-center">
+        {
+          items.map((item, index) => (
+            <TabsTrigger key={index} value={item.name}>{item.name}</TabsTrigger>
+          ))
+        }
       </TabsList>
-      <TabsContent value="encoder">
-        <Base64Encoder></Base64Encoder>
-      </TabsContent>
-      <TabsContent value="decoder">
-        <Base64Decoder></Base64Decoder>
-      </TabsContent>
+      {
+          items.map((item, index) => (
+            <TabsContent key={index} value={item.name}>{item.element}</TabsContent>
+          ))
+        }
     </Tabs>
   )
 }
