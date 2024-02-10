@@ -29,6 +29,10 @@ export const converterConfig: ConverterConfig = {
           href: "/converter/utf-8",
         },
         {
+          title: "JSON Minify/Prettify",
+          href: "/converter/json",
+        },
+        {
           title: "Search",
           href: "/docs/in-progress",
           disabled: true,

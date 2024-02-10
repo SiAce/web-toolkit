@@ -40,3 +40,11 @@ export function UTF8Decode(s: string) {
 
   return new TextDecoder().decode(buf);
 }
+
+export function JSONMinify(s: string) {
+  return JSON.stringify(JSON.parse(s));
+}
+
+export function JSONPrettify(s: string) {
+  return JSON.stringify(JSON.parse(s), undefined, 2);
+}
