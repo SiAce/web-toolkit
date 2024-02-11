@@ -1,3 +1,5 @@
+import { createHash } from "crypto";
+
 export function stringToBase64(originalString: string) {
   const uint8Array = new TextEncoder().encode(originalString);
   const binString = String.fromCodePoint(...Array.from(uint8Array));
@@ -47,4 +49,12 @@ export function JSONMinify(s: string) {
 
 export function JSONPrettify(s: string) {
   return JSON.stringify(JSON.parse(s), undefined, 2);
+}
+
+export function MD5Hash(s: string): string {
+  return createHash("md5").update(s).digest('hex');
+}
+
+export function SHA256Hash(s: string): string {
+  return createHash("sha256").update(s).digest('hex');
 }

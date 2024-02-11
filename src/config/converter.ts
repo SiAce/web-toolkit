@@ -33,6 +33,14 @@ export const converterConfig: ConverterConfig = {
           href: "/converter/json",
         },
         {
+          title: "MD5 Hash",
+          href: "/converter/md5",
+        },
+        {
+          title: "SHA256 Hash",
+          href: "/converter/sha256",
+        },
+        {
           title: "Search",
           href: "/docs/in-progress",
           disabled: true,
