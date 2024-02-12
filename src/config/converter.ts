@@ -5,12 +5,7 @@ export const converterConfig: ConverterConfig = {
     {
       title: "Converter",
       href: "/converter/base64",
-    },
-    {
-      title: "Guides",
-      href: "/guides",
-      disabled: true,
-    },
+    }
   ],
   sidebarNav: [
     {
@@ -39,12 +34,7 @@ export const converterConfig: ConverterConfig = {
         {
           title: "SHA256 Hash",
           href: "/converter/sha256",
-        },
-        {
-          title: "Search",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
+        }
       ],
     }
   ],
