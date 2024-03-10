@@ -8,8 +8,9 @@ export default function UTF8Page() {
     <main className="relative py-6 lg:gap-10 lg:py-10 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0">
         <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
-          UTF-8 Converter (Into Hex Bytes)
+          UTF-8 Converter
         </h1>
+        <h2 className="">Into Hex Bytes</h2>
         <TabbedConverter
           items={[
             { name: "UTF8 Encoder", element: <UTF8Encoder /> },

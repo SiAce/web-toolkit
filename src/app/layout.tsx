@@ -1,7 +1,8 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Roboto as FontSans } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from 'geist/font/mono'
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -9,11 +10,6 @@ import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
-  variable: "--font-sans",
-})
 
 export const metadata: Metadata = {
   title: "Web Tool Kit",
@@ -36,7 +32,8 @@ export default function RootLayout({
       </head>
       <body className={cn(
         "min-h-screen bg-background font-sans antialiased",
-        fontSans.variable
+        GeistSans.variable,
+        GeistMono.variable
       )}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
