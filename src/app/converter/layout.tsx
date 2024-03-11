@@ -1,13 +1,12 @@
 import Link from "next/link";
 
-import { converterConfig } from "@/config/converter";
-import { siteConfig } from "@/config/site";
+import { CommandMenu } from "@/components/command-menu";
 import { Icons } from "@/components/icons";
 import { MainNav } from "@/components/main-nav";
-import { DocsSearch } from "@/components/search";
 import { DocsSidebarNav } from "@/components/sidebar-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { CommandMenu } from "@/components/command-menu";
+import { converterConfig } from "@/config/converter";
+import { siteConfig } from "@/config/site";
 
 interface DocsLayoutProps {
   children: React.ReactNode;

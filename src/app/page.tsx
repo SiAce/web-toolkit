@@ -1,7 +1,3 @@
-import { Base64Decoder } from "@/components/converter/base64/base64-decoder";
-import { Base64Encoder } from "@/components/converter/base64/base64-encoder";
-import { TabbedConverter } from "@/components/converter/tabbed-converter";
-
 export default function Home() {
   return (
     <main className="flex flex-col justify-evenly gap-10">

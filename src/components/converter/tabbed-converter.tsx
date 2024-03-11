@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Converter } from "./converter";
 
 export interface TabbedConverterProps {
@@ -8,7 +8,7 @@ export interface TabbedConverterProps {
   }[]
 }
 
-export function TabbedConverter({items}: TabbedConverterProps) {
+export function TabbedConverter({ items }: TabbedConverterProps) {
   return (
     <Tabs defaultValue={items[0].name} className="flex flex-col justify-evenly gap-7 m-7">
       <TabsList className="w-min flex self-center">
@@ -19,12 +19,12 @@ export function TabbedConverter({items}: TabbedConverterProps) {
         }
       </TabsList>
       {
-          items.map((item, index) => (
-            <TabsContent key={index} value={item.name}>
-              <Converter {...item}></Converter>
-            </TabsContent>
-          ))
-        }
+        items.map((item, index) => (
+          <TabsContent key={index} value={item.name}>
+            <Converter {...item}></Converter>
+          </TabsContent>
+        ))
+      }
     </Tabs>
   )
 }

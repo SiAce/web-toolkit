@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 import { UpdateIcon } from "@radix-ui/react-icons";
-import { HTMLMotionProps, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { MotionButton } from "../animated/motion-button";
 
