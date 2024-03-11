@@ -13,9 +13,11 @@ const convertIcon = {
   hover: {
     rotate: 45,
     scale: 1.2,
+    pathlength: 0.2
   },
   tap: {
     rotate: 360,
+    pathlength: 0.8
   },
   init: {
   },
