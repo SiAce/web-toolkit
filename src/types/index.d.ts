@@ -49,7 +49,8 @@ export type ConverterPagesConfig = {
 }
 
 export type ConverterPageConfig = {
-  pageName: string
+  title: string
+  subtitle?: string
   converters: Converter[]
 }
 

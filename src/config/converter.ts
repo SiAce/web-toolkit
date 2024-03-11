@@ -42,7 +42,7 @@ export const converterConfig: ConverterConfig = {
   pages:
   {
     base64: {
-      pageName: "Base64 Converter",
+      title: "Base64 Converter",
       converters: [
         {
           name: "Base64 Encoder",
@@ -57,7 +57,7 @@ export const converterConfig: ConverterConfig = {
       ]
     },
     url: {
-      pageName: "URL Converter",
+      title: "URL Converter",
       converters: [
         {
           name: "URL Encoder",
@@ -72,7 +72,8 @@ export const converterConfig: ConverterConfig = {
       ]
     },
     "utf-8": {
-      pageName: "UTF-8 Converter",
+      title: "UTF-8 Converter",
+      subtitle: "Into Hex Bytes",
       converters: [
         {
           name: "UTF8 Encoder",
@@ -87,7 +88,7 @@ export const converterConfig: ConverterConfig = {
       ]
     },
     json: {
-      pageName: "JSON Converter",
+      title: "JSON Converter",
       converters: [
         {
           name: "JSON Minify",
@@ -102,7 +103,7 @@ export const converterConfig: ConverterConfig = {
       ]
     },
     md5: {
-      pageName: "MD5 Hash",
+      title: "MD5 Hash",
       converters: [
         {
           name: "MD5 Hash",
@@ -112,7 +113,7 @@ export const converterConfig: ConverterConfig = {
       ]
     },
     sha256: {
-      pageName: "SHA256 Hash",
+      title: "SHA256 Hash",
       converters: [
         {
           name: "SHA256 Hash",
