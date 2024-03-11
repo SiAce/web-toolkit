@@ -1,9 +1,10 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Converter } from "./converter";
 
 export interface TabbedConverterProps {
   items: {
     name: string
-    element: React.ReactElement
+    convertFunc: (s: string) => string;
   }[]
 }
 
@@ -19,7 +20,9 @@ export function TabbedConverter({items}: TabbedConverterProps) {
       </TabsList>
       {
           items.map((item, index) => (
-            <TabsContent key={index} value={item.name}>{item.element}</TabsContent>
+            <TabsContent key={index} value={item.name}>
+              <Converter {...item}></Converter>
+            </TabsContent>
           ))
         }
     </Tabs>

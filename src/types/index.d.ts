@@ -41,6 +41,22 @@ export type SiteConfig = {
 export type ConverterConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
+  pages: ConverterPagesConfig
+}
+
+export type ConverterPagesConfig = {
+  [key: string]: ConverterPageConfig;
+}
+
+export type ConverterPageConfig = {
+  pageName: string
+  converters: Converter[]
+}
+
+export type Converter = {
+  name: string;
+  url: string;
+  convertFunc: (s: string) => string;
 }
 
 export type MarketingConfig = {

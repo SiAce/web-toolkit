@@ -1,19 +1,19 @@
+'use client'
+
 import { TabbedConverter } from "@/components/converter/tabbed-converter";
 import { DashboardTableOfContents } from "@/components/toc";
+import { converterConfig } from "@/config/converter";
 
-export interface ConverterPageProps {
-  pageName: string;
-  converterConfigs: {
-    name: string;
-    url: string;
-    element: React.ReactElement;
-  }[];
+
+export interface ClientConverterPageProps {
+  params: {
+    slug: string
+  }
 }
 
-export default function ConverterPage({
-  pageName,
-  converterConfigs,
-}: ConverterPageProps) {
+export default function ClientConverterPage({ params }: ClientConverterPageProps) {
+  const {pageName, converters} = converterConfig.pages[params.slug]
+
   return (
     <main className="relative py-6 lg:gap-10 lg:py-10 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0">
@@ -21,9 +21,9 @@ export default function ConverterPage({
           {pageName}
         </h1>
         <TabbedConverter
-          items={converterConfigs.map(({ name, element }) => ({
+          items={converters.map(({ name, convertFunc }) => ({
             name,
-            element,
+            convertFunc,
           }))}
         ></TabbedConverter>
       </div>
@@ -31,7 +31,7 @@ export default function ConverterPage({
         <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
           <DashboardTableOfContents
             toc={{
-              items: converterConfigs.map(({ name, url }) => ({
+              items: converters.map(({ name, url }) => ({
                 title: name,
                 url,
               })),

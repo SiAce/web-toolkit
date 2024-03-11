@@ -1,10 +1,25 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
+import { UpdateIcon } from "@radix-ui/react-icons";
+import { HTMLMotionProps, motion } from "framer-motion";
 import { useState } from "react";
+import { MotionButton } from "../animated/motion-button";
+
+
+const convertIcon = {
+  hover: {
+    rotate: 45,
+    scale: 1.2,
+  },
+  tap: {
+    rotate: 360,
+  },
+  init: {
+  },
+}
 
 export interface ConverterProps {
   name: string;
@@ -19,6 +34,7 @@ export function Converter({ name, convertFunc }: ConverterProps) {
     undefined
   );
 
+
   return (
     <div className="grid w-full gap-10">
       <div className="grid w-full gap-5">
@@ -30,11 +46,18 @@ export function Converter({ name, convertFunc }: ConverterProps) {
           onChange={(e) => setOriginalString(e.target.value)}
           value={originalString}
         />
-        <Button
+        <MotionButton
           onClick={(e) => setConvertedString(convertFunc(originalString!))}
+          whileHover="hover"
+          whileTap="tap"
         >
           {name}
-        </Button>
+          <motion.div
+            variants={convertIcon}
+          >
+            <UpdateIcon className="m-2" />
+          </motion.div>
+        </MotionButton>
       </div>
       <div className="grid w-full gap-5">
         <Label htmlFor="converter-output-string">Converted string</Label>
