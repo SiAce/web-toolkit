@@ -50,13 +50,13 @@ export type ConverterPagesConfig = {
 
 export type ConverterPageConfig = {
   title: string
+  href: string
   subtitle?: string
   converters: Converter[]
 }
 
 export type Converter = {
   name: string;
-  url: string;
   convertFunc: (s: string) => string;
 }
 

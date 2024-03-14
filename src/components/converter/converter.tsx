@@ -3,6 +3,7 @@
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
+import { converterConfig } from "@/config/converter";
 import { UpdateIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -24,11 +25,11 @@ const convertIcon = {
 }
 
 export interface ConverterProps {
-  name: string;
-  convertFunc: (s: string) => string;
+  page: string
+  converterName: string
 }
 
-export function Converter({ name, convertFunc }: ConverterProps) {
+export function Converter({ page, converterName }: ConverterProps) {
   const [originalString, setOriginalString] = useState<string | undefined>(
     undefined
   );
@@ -36,6 +37,7 @@ export function Converter({ name, convertFunc }: ConverterProps) {
     undefined
   );
 
+  const convertFunc = converterConfig.pages[page].converters.find((converter) => converter.name === converterName)!.convertFunc
 
   return (
     <div className="grid w-full gap-10">
@@ -53,7 +55,7 @@ export function Converter({ name, convertFunc }: ConverterProps) {
           whileHover="hover"
           whileTap="tap"
         >
-          {name}
+          {converterName}
           <motion.div
             variants={convertIcon}
           >

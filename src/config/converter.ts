@@ -42,82 +42,78 @@ export const converterConfig: ConverterConfig = {
   pages:
   {
     base64: {
-      title: "Base64 Converter",
+      title: "Base64 Encoder/Decoder",
+      href: "/converter/base64",
       converters: [
         {
           name: "Base64 Encoder",
-          url: "#base64-encoder",
           convertFunc: stringToBase64
         },
         {
           name: "Base64 Decoder",
-          url: "#base64-decoder",
           convertFunc: Base64ToString
         },
       ]
     },
     url: {
-      title: "URL Converter",
+      title: "URL Encoder/Decoder",
+      href: "/converter/url",
       converters: [
         {
           name: "URL Encoder",
-          url: "#url-encoder",
           convertFunc: encodeURI
         },
         {
           name: "URL Decoder",
-          url: "#url-decoder",
           convertFunc: decodeURI
         },
       ]
     },
     "utf-8": {
-      title: "UTF-8 Converter",
+      title: "UTF-8 Encoder/Decoder",
+      href: "/converter/utf-8",
       subtitle: "Into Hex Bytes",
       converters: [
         {
           name: "UTF8 Encoder",
-          url: "#utf8-encoder",
           convertFunc: UTF8Encode
         },
         {
           name: "UTF8 Decoder",
-          url: "#utf8-decoder",
           convertFunc: UTF8Decode
         },
       ]
     },
     json: {
-      title: "JSON Converter",
+      title: "JSON Minify/Prettify",
+      href: "/converter/json",
       converters: [
         {
           name: "JSON Minify",
-          url: "#json-minify",
           convertFunc: JSONMinify
         },
         {
           name: "JSON Prettify",
-          url: "#json-prettify",
           convertFunc: JSONPrettify
         },
       ]
     },
     md5: {
       title: "MD5 Hash",
+      href: "/converter/md5",
       converters: [
         {
           name: "MD5 Hash",
-          url: "#md5-hash",
           convertFunc: MD5Hash
         }
       ]
     },
     sha256: {
       title: "SHA256 Hash",
+      href: "/converter/sha256",
       converters: [
         {
           name: "SHA256 Hash",
-          url: "#sha256-hash",
           convertFunc: SHA256Hash
         }
       ]
