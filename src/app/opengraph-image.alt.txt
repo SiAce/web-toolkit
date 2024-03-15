@@ -1,0 +1,1 @@
+An open source all-in-one web took kit application built using Next.js. Encoder/Decoder includes Base64 Encoder/Decoder , URL Encoder/Decoder , UTF-8 Encoder/Decoder , JSON Minify/Prettify , MD5 Hash , SHA256 Hash.
