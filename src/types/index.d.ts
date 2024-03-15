@@ -41,7 +41,7 @@ export type SiteConfig = {
 export type ConverterConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
-  pages: ConverterPagesConfig
+  textPages: ConverterPagesConfig
 }
 
 export type ConverterPagesConfig = {

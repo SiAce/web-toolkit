@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/converter/base64',
+        destination: '/converter/text/base64',
         permanent: true,
       },
     ]

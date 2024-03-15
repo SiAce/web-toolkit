@@ -5,10 +5,14 @@ import { MetadataRoute } from 'next'
 
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  return Object.values(converterConfig.pages).map((page) => ({
-    url: `${siteConfig.url}${page.href}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 1
-  }))
+  return converterConfig.sidebarNav.map(
+    (sidebarGroup) => sidebarGroup.items!.map(
+      (sidebarItem) => ({
+        url: `${siteConfig.url}${sidebarItem.href}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as "weekly",
+        priority: 1
+      })
+    )
+  ).flat()
 }

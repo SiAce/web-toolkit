@@ -1,4 +1,4 @@
-import { TabbedConverter } from "@/components/converter/tabbed-converter";
+import { TabbedTextConverter } from "@/components/converter/text/tabbed-converter";
 import { DashboardTableOfContents } from "@/components/toc";
 import { converterConfig } from "@/config/converter";
 import { siteConfig } from "@/config/site";
@@ -12,7 +12,7 @@ export interface ConverterPageProps {
 
 export function generateMetadata({ params }: ConverterPageProps) {
   const slug = params.slug;
-  const { title } = converterConfig.pages[slug];
+  const { title } = converterConfig.textPages[slug];
   return {
     title,
     description: `${siteConfig.description}${title}`,
@@ -20,12 +20,12 @@ export function generateMetadata({ params }: ConverterPageProps) {
 }
 
 export function generateStaticParams() {
-  return Object.keys(converterConfig.pages).map((slug) => { slug })
+  return Object.keys(converterConfig.textPages).map((slug) => { slug })
 }
 
 export default function ConverterPage({ params }: ConverterPageProps) {
   const slug = params.slug;
-  const { title, subtitle, converters } = converterConfig.pages[slug];
+  const { title, subtitle, converters } = converterConfig.textPages[slug];
 
   return (
     <main className="relative py-6 lg:gap-10 lg:py-10 xl:grid xl:grid-cols-[1fr_300px]">
@@ -36,12 +36,12 @@ export default function ConverterPage({ params }: ConverterPageProps) {
         <h2>
           {subtitle}
         </h2>
-        <TabbedConverter
+        <TabbedTextConverter
           page={slug}
           converters={converters.map(({ name }) => ({
             name,
           }))}
-        ></TabbedConverter>
+        ></TabbedTextConverter>
       </div>
       <div className="hidden text-sm xl:block">
         <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">

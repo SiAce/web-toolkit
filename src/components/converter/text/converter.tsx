@@ -7,7 +7,7 @@ import { converterConfig } from "@/config/converter";
 import { UpdateIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { MotionButton } from "../animated/motion-button";
+import { MotionButton } from "../../animated/motion-button";
 
 
 const convertIcon = {
@@ -29,7 +29,7 @@ export interface ConverterProps {
   converterName: string
 }
 
-export function Converter({ page, converterName }: ConverterProps) {
+export function TextConverter({ page, converterName }: ConverterProps) {
   const [originalString, setOriginalString] = useState<string | undefined>(
     undefined
   );
@@ -37,7 +37,7 @@ export function Converter({ page, converterName }: ConverterProps) {
     undefined
   );
 
-  const convertFunc = converterConfig.pages[page].converters.find((converter) => converter.name === converterName)!.convertFunc
+  const convertFunc = converterConfig.textPages[page].converters.find((converter) => converter.name === converterName)!.convertFunc
 
   return (
     <div className="grid w-full gap-10">

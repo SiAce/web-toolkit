@@ -5,45 +5,45 @@ export const converterConfig: ConverterConfig = {
   mainNav: [
     {
       title: "Converter",
-      href: "/converter/base64",
+      href: "/converter/text/base64",
     }
   ],
   sidebarNav: [
     {
-      title: "Converter",
+      title: "Text Converter",
       items: [
         {
           title: "Base64 Encoder/Decoder",
-          href: "/converter/base64",
+          href: "/converter/text/base64",
         },
         {
           title: "URL Encoder/Decoder",
-          href: "/converter/url",
+          href: "/converter/text/url",
         },
         {
           title: "UTF-8 Encoder/Decoder",
-          href: "/converter/utf-8",
+          href: "/converter/text/utf-8",
         },
         {
           title: "JSON Minify/Prettify",
-          href: "/converter/json",
+          href: "/converter/text/json",
         },
         {
           title: "MD5 Hash",
-          href: "/converter/md5",
+          href: "/converter/text/md5",
         },
         {
           title: "SHA256 Hash",
-          href: "/converter/sha256",
+          href: "/converter/text/sha256",
         }
       ],
     }
   ],
-  pages:
+  textPages:
   {
     base64: {
       title: "Base64 Encoder/Decoder",
-      href: "/converter/base64",
+      href: "/converter/text/base64",
       converters: [
         {
           name: "Base64 Encoder",
@@ -57,7 +57,7 @@ export const converterConfig: ConverterConfig = {
     },
     url: {
       title: "URL Encoder/Decoder",
-      href: "/converter/url",
+      href: "/converter/text/url",
       converters: [
         {
           name: "URL Encoder",
@@ -71,7 +71,7 @@ export const converterConfig: ConverterConfig = {
     },
     "utf-8": {
       title: "UTF-8 Encoder/Decoder",
-      href: "/converter/utf-8",
+      href: "/converter/text/utf-8",
       subtitle: "Into Hex Bytes",
       converters: [
         {
@@ -86,7 +86,7 @@ export const converterConfig: ConverterConfig = {
     },
     json: {
       title: "JSON Minify/Prettify",
-      href: "/converter/json",
+      href: "/converter/text/json",
       converters: [
         {
           name: "JSON Minify",
@@ -100,7 +100,7 @@ export const converterConfig: ConverterConfig = {
     },
     md5: {
       title: "MD5 Hash",
-      href: "/converter/md5",
+      href: "/converter/text/md5",
       converters: [
         {
           name: "MD5 Hash",
@@ -110,7 +110,7 @@ export const converterConfig: ConverterConfig = {
     },
     sha256: {
       title: "SHA256 Hash",
-      href: "/converter/sha256",
+      href: "/converter/text/sha256",
       converters: [
         {
           name: "SHA256 Hash",
