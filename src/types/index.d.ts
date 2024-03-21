@@ -1,6 +1,7 @@
 import type { Icon } from "lucide-react"
 
 import { Icons } from "@/components/icons"
+import { ConverterProps } from "@/components/converter/text/converter"
 
 export type NavItem = {
   external?: string
@@ -17,15 +18,15 @@ export type SidebarNavItem = {
   external?: boolean
   icon?: keyof typeof Icons
 } & (
-  | {
+    | {
       href: string
       items?: never
     }
-  | {
+    | {
       href?: string
       items: NavLink[]
     }
-)
+  )
 
 export type SiteConfig = {
   name: string
@@ -38,26 +39,37 @@ export type SiteConfig = {
   }
 }
 
+
+export type ConverterGroupIdToFunc = {
+  text: [string, string]
+  image: [File, string]
+}
+
+export type ConverterGroupId = keyof ConverterGroupIdToFunc
+type ConverterGroupUnion = UnionOfGeneric<ConverterGroupId>
+
 export type ConverterConfig = {
   mainNav: MainNavItem[]
-  sidebarNav: SidebarNavItem[]
-  textPages: ConverterPagesConfig
+  converterGroups: ConverterGroupUnion[]
 }
 
-export type ConverterPagesConfig = {
-  [key: string]: ConverterPageConfig;
-}
-
-export type ConverterPageConfig = {
+export type ConverterGroup<T extends ConverterGroupId> = {
+  id: T
   title: string
-  href: string
-  subtitle?: string
-  converters: Converter[]
+  converterFC: React.FC<ConverterProps>
+  pages: ConverterPage<ConverterGroupIdToFunc[T][0], ConverterGroupIdToFunc[T][1]>[]
 }
 
-export type Converter = {
+export type ConverterPage<TInput, TOutput> = {
+  id: string
+  title: string
+  subtitle?: string
+  converters: ConverterComponent<TInput, TOutput>[]
+}
+
+export type ConverterComponent<TInput, TOutput> = {
   name: string;
-  convertFunc: (s: string) => string;
+  convertFunc: (s: TInput) => TOutput | Promise<TOutput>;
 }
 
 export type MarketingConfig = {
@@ -74,3 +86,5 @@ export type SubscriptionPlan = {
   description: string
   stripePriceId: string
 }
+
+export type UnionOfGeneric<TUnion extends ConverterGroupId> = { [K in TUnion]: ConverterGroup<K> }[TUnion]

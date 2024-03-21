@@ -12,6 +12,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.BASE_URL!),
   title: "Web Tool Kit",
   description: "Your All-In-One Web Tool Kit",
 };

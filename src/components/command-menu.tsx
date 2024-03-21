@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
-import { converterConfig } from "@/config/converter";
+import { converterConfig, sidebarNav } from "@/config/converter";
 import { cn } from "@/lib/utils";
 import { DialogProps } from "@radix-ui/react-dialog";
 import {
@@ -92,7 +92,7 @@ export function CommandMenu({ ...props }: DialogProps) {
                 </CommandItem>
               ))}
           </CommandGroup>
-          {converterConfig.sidebarNav.map((group) => (
+          {sidebarNav.map((group) => (
             <CommandGroup key={group.title} heading={group.title}>
               {group?.items?.map((navItem) => (
                 <CommandItem

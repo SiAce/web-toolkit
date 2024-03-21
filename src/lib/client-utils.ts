@@ -58,3 +58,14 @@ export function MD5Hash(s: string): string {
 export function SHA256Hash(s: string): string {
   return createHash("sha256").update(s).digest('hex');
 }
+
+export function fileToDataUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();  
+    fileReader.onload = () => {
+      resolve(fileReader.result as string)
+    };
+    fileReader.onerror = reject;
+    fileReader.readAsDataURL(file);
+  })
+}

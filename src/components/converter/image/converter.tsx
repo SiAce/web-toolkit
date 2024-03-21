@@ -7,18 +7,15 @@ import { converterConfig, isConverterGroup } from "@/config/converter";
 
 import { useState } from "react";
 import { AnimatedButton } from "../../animated/motion-button";
+import { ConverterProps } from "../text/converter";
+import { DropzoneSingle } from "./dropzone-single";
 
 
-export interface ConverterProps {
-  converterPageId: string
-  converterName: string
-}
-
-export function TextConverter({ converterPageId, converterName }: ConverterProps) {
-  const [originalString, setOriginalString] = useState<string>();
+export function ImageConverter({ converterPageId, converterName }: ConverterProps) {
+  const [originalFile, setOriginalFile] = useState<File>();
   const [convertedString, setConvertedString] = useState<string>();
 
-  const pages = converterConfig.converterGroups.find(isConverterGroup("text"))?.pages;
+  const pages = converterConfig.converterGroups.find(isConverterGroup("image"))?.pages;
 
   const page = pages?.find(converterPage => converterPage.id === converterPageId);
   const convertFunc = page?.converters.find(converter => converter.name === converterName)?.convertFunc
@@ -26,18 +23,12 @@ export function TextConverter({ converterPageId, converterName }: ConverterProps
   return (
     <div className="grid w-full gap-10">
       <div className="grid w-full gap-5">
-        <Label htmlFor="converter-input-string">Original String</Label>
-        <Textarea
-          rows={10}
-          placeholder="Type the string to be converted."
-          id="converter-input-string"
-          onChange={(e) => setOriginalString(e.target.value)}
-          value={originalString}
-        />
+        <Label htmlFor="converter-input-string">Original Image</Label>
+        <DropzoneSingle className="min-h-52" file={originalFile} setFile={setOriginalFile}/>
         <AnimatedButton
           onClick={async () => {
-            if (originalString) {
-              setConvertedString(await convertFunc!(originalString))
+            if (originalFile) {
+              setConvertedString(await convertFunc!(originalFile))
             }
           }}
         >
