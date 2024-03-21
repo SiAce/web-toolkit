@@ -24,7 +24,7 @@ export function ImageConverter({ converterPageId, converterName }: ConverterProp
     <div className="grid w-full gap-10">
       <div className="grid w-full gap-5">
         <Label htmlFor="converter-input-string">Original Image</Label>
-        <DropzoneSingle className="min-h-52" file={originalFile} setFile={setOriginalFile}/>
+        <DropzoneSingle id="converter-input-string" className="min-h-52" file={originalFile} setFile={setOriginalFile}/>
         <AnimatedButton
           onClick={async () => {
             if (originalFile) {

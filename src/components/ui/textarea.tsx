@@ -25,7 +25,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           {...props}
         />
-        <button className="flex justify-center items-center border-[1px] border-zinc-700 rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 z-10 h-6 w-6 bg-zinc-50 hover:bg-zinc-700 hover:text-zinc-50 absolute right-4 top-4"
+        <button className="flex justify-center items-center border-[1px] border-zinc-700 rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 z-10 h-6 w-6 bg-muted hover:bg-zinc-700 hover:text-zinc-50 absolute right-4 top-4"
           onClick={() => {
             navigator.clipboard.writeText(String(props.value));
             setHasCopied(true);
@@ -33,8 +33,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         >
           {
             hasCopied
-              ? <CheckIcon />
-              : <ClipboardCopyIcon />
+              ? <CheckIcon className=" text-muted-foreground" />
+              : <ClipboardCopyIcon className=" text-muted-foreground"/>
           }
         </button>
       </div>

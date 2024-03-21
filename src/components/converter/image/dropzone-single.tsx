@@ -20,7 +20,6 @@ export function DropzoneSingle({ file, setFile, className, ...props }: DropzoneS
           <Image src={URL.createObjectURL(file)} alt={file.name}
             width="0"
             height="0"
-            sizes="100vw"
             className="w-full h-auto"
           />
         </div>

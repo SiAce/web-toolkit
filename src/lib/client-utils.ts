@@ -61,11 +61,24 @@ export function SHA256Hash(s: string): string {
 
 export function fileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();  
+    const fileReader = new FileReader();
     fileReader.onload = () => {
       resolve(fileReader.result as string)
     };
     fileReader.onerror = reject;
     fileReader.readAsDataURL(file);
+  })
+}
+
+export function fileToHex(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      const numberArray = Array.from(new Uint8Array(fileReader.result as ArrayBuffer))
+      const hexString = numberArray.map(num => num.toString(16).toUpperCase().padStart(2, "0")).join("")
+      resolve(hexString)
+    };
+    fileReader.onerror = reject;
+    fileReader.readAsArrayBuffer(file);
   })
 }

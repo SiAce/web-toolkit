@@ -1,6 +1,6 @@
 import { ImageConverter } from "@/components/converter/image/converter";
 import { TextConverter } from "@/components/converter/text/converter";
-import { Base64ToString, JSONMinify, JSONPrettify, MD5Hash, SHA256Hash, UTF8Decode, UTF8Encode, fileToDataUrl, stringToBase64 } from "@/lib/client-utils";
+import { Base64ToString, JSONMinify, JSONPrettify, MD5Hash, SHA256Hash, UTF8Decode, UTF8Encode, fileToHex, fileToDataUrl, stringToBase64 } from "@/lib/client-utils";
 import { ConverterConfig, ConverterGroup, ConverterGroupId, ConverterGroupUnion, SidebarNavItem } from "@/types";
 
 export const converterConfig: ConverterConfig = {
@@ -108,6 +108,16 @@ export const converterConfig: ConverterConfig = {
             {
               name: "Base64 Encoder",
               convertFunc: fileToDataUrl
+            },
+          ]
+        },
+        {
+          id: "hex",
+          title: "Hex Image Encoder",
+          converters: [
+            {
+              name: "Hex Encoder",
+              convertFunc: fileToHex
             },
           ]
         },
