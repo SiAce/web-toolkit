@@ -17,11 +17,11 @@ export function DropzoneSingle({ file, setFile, className, ...props }: DropzoneS
       {
         file &&
         <div className="text-accent-foreground">
-          <Image src={URL.createObjectURL(file)} alt={file.name} width={0} height={0}
-            style={{
-              width: "auto",
-              height: '100%',
-            }}
+          <Image src={URL.createObjectURL(file)} alt={file.name}
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-full h-auto"
           />
         </div>
       }
