@@ -1,6 +1,6 @@
 import { ImageConverter } from "@/components/converter/image/converter";
 import { TextConverter } from "@/components/converter/text/converter";
-import { Base64ToString, JSONMinify, JSONPrettify, MD5Hash, SHA256Hash, UTF8Decode, UTF8Encode, fileToHex, fileToDataUrl, stringToBase64 } from "@/lib/client-utils";
+import { Base64ToString, JSONMinify, JSONPrettify, MD5Hash, SHA256Hash, UTF8Decode, UTF8Encode, fileToHex, fileToDataUrl, stringToBase64, JSONParse } from "@/lib/client-utils";
 import { ConverterConfig, ConverterGroup, ConverterGroupId, ConverterGroupUnion, SidebarNavItem } from "@/types";
 
 export const converterConfig: ConverterConfig = {
@@ -71,6 +71,20 @@ export const converterConfig: ConverterConfig = {
             {
               name: "JSON Prettify",
               convertFunc: JSONPrettify
+            },
+          ]
+        },
+        {
+          id: "json-parse",
+          title: "JSON Parse/Stringify",
+          converters: [
+            {
+              name: "JSON Parse",
+              convertFunc: JSONParse
+            },
+            {
+              name: "JSON Stringify",
+              convertFunc: JSON.stringify
             },
           ]
         },

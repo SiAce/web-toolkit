@@ -51,6 +51,10 @@ export function JSONPrettify(s: string) {
   return JSON.stringify(JSON.parse(s), undefined, 2);
 }
 
+export function JSONParse(s: string) {
+  return String(JSON.parse(s));
+}
+
 export function MD5Hash(s: string): string {
   return createHash("md5").update(s).digest('hex');
 }
