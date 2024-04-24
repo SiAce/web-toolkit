@@ -24,7 +24,7 @@ export function DropzoneSingle({ file, setFile, className, ...props }: DropzoneS
           />
         </div>
       }
-      <input type="file" className="absolute inset-0 opacity-0" {...props}
+      <input type="file" className="absolute w-full inset-0 opacity-0 z-50" {...props}
         onChange={
           e => {
             const files = e.target.files;

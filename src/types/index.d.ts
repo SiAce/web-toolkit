@@ -3,16 +3,16 @@ import type { Icon } from "lucide-react"
 import { Icons } from "@/components/icons"
 import { ConverterProps } from "@/components/converter/text/converter"
 
-export type NavItem = {
+type NavItem = Readonly<{
   external?: string
   title: string
   href: string
   disabled?: boolean
-}
+}>
 
-export type MainNavItem = NavItem
+type MainNavItem = NavItem
 
-export type SidebarNavItem = {
+type SidebarNavItem = Readonly<{
   title: string
   disabled?: boolean
   external?: boolean
@@ -27,8 +27,8 @@ export type SidebarNavItem = {
       items: NavLink[]
     }
   )
-
-export type SiteConfig = {
+>
+type SiteConfig = Readonly<{
   name: string
   description: string
   url: string
@@ -37,54 +37,54 @@ export type SiteConfig = {
     twitter?: string
     github: string
   }
-}
+}>
 
 
-export type ConverterGroupIdToFunc = {
+type ConverterGroupIdToFunc = Readonly<{
   text: [string, string]
   image: [File, string]
-}
+}>
 
-export type ConverterGroupId = keyof ConverterGroupIdToFunc
+type ConverterGroupId = keyof ConverterGroupIdToFunc
 type ConverterGroupUnion = UnionOfGeneric<ConverterGroupId>
 
-export type ConverterConfig = {
+type ConverterConfig = Readonly<{
   mainNav: MainNavItem[]
   converterGroups: ConverterGroupUnion[]
-}
+}>
 
-export type ConverterGroup<T extends ConverterGroupId> = {
+type ConverterGroup<T extends ConverterGroupId> = Readonly<{
   id: T
   title: string
   converterFC: React.FC<ConverterProps>
   pages: ConverterPage<ConverterGroupIdToFunc[T][0], ConverterGroupIdToFunc[T][1]>[]
-}
+} >
 
-export type ConverterPage<TInput, TOutput> = {
+type ConverterPage<TInput, TOutput> = Readonly<{
   id: string
   title: string
   subtitle?: string
   converters: ConverterComponent<TInput, TOutput>[]
-}
+}>
 
-export type ConverterComponent<TInput, TOutput> = {
+type ConverterComponent<TInput, TOutput> = Readonly<{
   name: string;
   convertFunc: (s: TInput) => TOutput | Promise<TOutput>;
-}
+}>
 
-export type MarketingConfig = {
+type MarketingConfig = {
   mainNav: MainNavItem[]
 }
 
-export type DashboardConfig = {
+type DashboardConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
 }
 
-export type SubscriptionPlan = {
+type SubscriptionPlan = {
   name: string
   description: string
   stripePriceId: string
 }
 
-export type UnionOfGeneric<TUnion extends ConverterGroupId> = { [K in TUnion]: ConverterGroup<K> }[TUnion]
+type UnionOfGeneric<TUnion extends ConverterGroupId> = { [K in TUnion]: ConverterGroup<K> }[TUnion]
